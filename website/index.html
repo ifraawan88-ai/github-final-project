@@ -257,29 +257,32 @@
 ```
 
 </body>
-</html> -->
+</html>
 
-<!DOCTYPE html>
+ -->
+
+
+ <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
+
 <title>Travel Recommendation Website</title>
 
 <style>
-
     body {
         font-family: Arial, sans-serif;
         margin: 0;
-        padding: 0;
     }
 
     header {
         background-color: #333;
-        padding: 20px;
+        padding: 15px;
+        color: white;
     }
 
     nav {
@@ -292,17 +295,11 @@
     nav a {
         color: white;
         text-decoration: none;
-        font-weight: bold;
-    }
-
-    nav a:hover {
-        text-decoration: underline;
     }
 
     #searchInput {
         padding: 8px;
         margin-left: auto;
-        width: 250px;
     }
 
     button {
@@ -342,224 +339,139 @@
         background-color: #333;
         color: white;
     }
-
 </style>
-```
+
 
 </head>
 
 <body>
 
-```
 <header>
 
-    <nav>
 
-        <a href="index.html">Home</a>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
 
-        <a href="about.html">About Us</a>
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search for temples"
+    >
 
-        <a href="contact.html">Contact Us</a>
+    <button type="button" onclick="searchRecommendations()">
+        Search
+    </button>
 
+    <button type="button" onclick="clearResults()">
+        Clear
+    </button>
+</nav>
 
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Enter a destination or keyword"
-        >
-
-
-        <button onclick="searchRecommendations()">
-            Search
-        </button>
-
-
-        <button onclick="clearResults()">
-            Clear
-        </button>
-
-    </nav>
 
 </header>
 
-
 <main>
 
-    <h1>Travel Recommendation Website</h1>
 
-    <p>
-        Discover amazing travel destinations around the world.
-        Search for beaches or temples and get recommendations.
-    </p>
+<h1>Travel Recommendation Website</h1>
 
+<p>
+    Search for temples and get travel recommendations.
+</p>
 
-    <div id="results"></div>
+<div id="results"></div>
+
 
 </main>
 
-
 <footer>
-
-    <p>
-        © 2026 Travel Recommendation Website.
-        All Rights Reserved.
-    </p>
-
+    <p>© 2026 Travel Recommendation Website. All Rights Reserved.</p>
 </footer>
-
-
 
 <script>
 
-    function searchRecommendations() {
+function searchRecommendations() {
 
-        const searchInput = document
-            .getElementById("searchInput")
-            .value
-            .toLowerCase()
-            .trim();
+    const searchInput = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
 
+    const results = document.getElementById("results");
 
-        const results =
-            document.getElementById("results");
-
-
-        results.innerHTML = "";
+    results.innerHTML = "";
 
 
-        /* BEACH SEARCH */
+    if (
+        searchInput === "temple" ||
+        searchInput === "temples"
+    ) {
 
-        if (
-            searchInput === "beach" ||
-            searchInput === "beaches"
-        ) {
+        results.innerHTML = `
 
-            results.innerHTML = `
+            <div class="card">
 
-                <div class="card">
+                <img
+                    src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc"
+                    alt="Angkor Wat Temple"
+                >
 
-                    <img
-                        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
-                        alt="Maldives Beach"
-                    >
-
-                    <h2>Maldives Beach</h2>
-
-                    <p>
-                        Enjoy beautiful white sand beaches and
-                        crystal clear blue water in the Maldives.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80"
-                        alt="Bora Bora Beach"
-                    >
-
-                    <h2>Bora Bora Beach</h2>
-
-                    <p>
-                        Bora Bora offers beautiful beaches,
-                        turquoise water and an unforgettable
-                        tropical experience.
-                    </p>
-
-                </div>
-
-            `;
-
-        }
-
-
-        /* TEMPLE SEARCH */
-
-        else if (
-            searchInput === "temple" ||
-            searchInput === "temples"
-        ) {
-
-            results.innerHTML = `
-
-                <div class="card">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=800&q=80"
-                        alt="Angkor Wat Temple"
-                    >
-
-                    <h2>Angkor Wat</h2>
-
-                    <p>
-                        Angkor Wat is a famous temple complex
-                        located in Cambodia and is one of the
-                        world's most important historical sites.
-                    </p>
-
-                </div>
-
-
-                <div class="card">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80"
-                        alt="Wat Arun Temple"
-                    >
-
-                    <h2>Wat Arun Temple</h2>
-
-                    <p>
-                        Wat Arun is a beautiful Buddhist temple
-                        located in Bangkok, Thailand, known for
-                        its unique architecture.
-                    </p>
-
-                </div>
-
-            `;
-
-        }
-
-
-        /* NO RESULTS */
-
-        else {
-
-            results.innerHTML = `
+                <h2>Angkor Wat Temple</h2>
 
                 <p>
-                    No recommendations found.
-                    Please search for "beach" or "temple".
+                    Angkor Wat is a famous temple complex located
+                    in Cambodia and is a popular tourist destination.
                 </p>
 
-            `;
+            </div>
 
-        }
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220"
+                    alt="Wat Arun Temple"
+                >
+
+                <h2>Wat Arun Temple</h2>
+
+                <p>
+                    Wat Arun is a beautiful Buddhist temple located
+                    in Bangkok, Thailand.
+                </p>
+
+            </div>
+
+        `;
+
+    } else {
+
+        results.innerHTML = `
+
+            <p>
+                No recommendations found.
+                Please search for "temple".
+            </p>
+
+        `;
 
     }
 
+}
 
 
-    /* CLEAR SEARCH */
+function clearResults() {
 
-    function clearResults() {
+    document.getElementById("searchInput").value = "";
 
-        document
-            .getElementById("searchInput")
-            .value = "";
+    document.getElementById("results").innerHTML = "";
 
-
-        document
-            .getElementById("results")
-            .innerHTML = "";
-
-    }
+}
 
 </script>
-```
 
 </body>
 </html>
