@@ -262,7 +262,7 @@
  -->
 
 
- <!DOCTYPE html>
+ <!-- <!DOCTYPE html>
 
 <html lang="en">
 
@@ -454,6 +454,269 @@ function searchRecommendations() {
             <p>
                 No recommendations found.
                 Please search for "temple".
+            </p>
+
+        `;
+
+    }
+
+}
+
+
+function clearResults() {
+
+    document.getElementById("searchInput").value = "";
+
+    document.getElementById("results").innerHTML = "";
+
+}
+
+</script>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Travel Recommendation Website</title>
+```
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
+
+    header {
+        background-color: #333;
+        padding: 15px;
+        color: white;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+    #searchInput {
+        padding: 8px;
+        margin-left: auto;
+    }
+
+    button {
+        padding: 8px 15px;
+        cursor: pointer;
+    }
+
+    main {
+        padding: 30px;
+    }
+
+    #results {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    .card {
+        width: 300px;
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        margin-top: 30px;
+        background-color: #333;
+        color: white;
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+
+```
+<input
+    type="text"
+    id="searchInput"
+    placeholder="Search for temples or countries"
+>
+
+<button type="button" onclick="searchRecommendations()">
+    Search
+</button>
+
+<button type="button" onclick="clearResults()">
+    Clear
+</button>
+```
+
+</nav>
+
+</header>
+
+<main>
+
+<h1>Travel Recommendation Website</h1>
+
+<p>
+    Search for temples or countries and get travel recommendations.
+</p>
+
+<div id="results"></div>
+
+</main>
+
+<footer>
+    <p>© 2026 Travel Recommendation Website. All Rights Reserved.</p>
+</footer>
+
+<script>
+
+function searchRecommendations() {
+
+    const searchInput = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const results = document.getElementById("results");
+
+    results.innerHTML = "";
+
+    /* TEMPLE SEARCH */
+
+    if (
+        searchInput === "temple" ||
+        searchInput === "temples"
+    ) {
+
+        results.innerHTML = `
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc"
+                    alt="Angkor Wat Temple"
+                >
+
+                <h2>Angkor Wat Temple</h2>
+
+                <p>
+                    Angkor Wat is a famous temple complex located
+                    in Cambodia and is a popular tourist destination.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220"
+                    alt="Wat Arun Temple"
+                >
+
+                <h2>Wat Arun Temple</h2>
+
+                <p>
+                    Wat Arun is a beautiful Buddhist temple located
+                    in Bangkok, Thailand.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+    /* COUNTRY SEARCH */
+
+    else if (
+        searchInput === "country" ||
+        searchInput === "countries"
+    ) {
+
+        results.innerHTML = `
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34"
+                    alt="France"
+                >
+
+                <h2>France</h2>
+
+                <p>
+                    France is a beautiful country in Europe,
+                    famous for Paris, the Eiffel Tower,
+                    art, culture, and delicious food.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1522083165195-3424ed129620"
+                    alt="Japan"
+                >
+
+                <h2>Japan</h2>
+
+                <p>
+                    Japan is an amazing country in Asia,
+                    famous for its temples, technology,
+                    culture, and beautiful landscapes.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+    else {
+
+        results.innerHTML = `
+
+            <p>
+                No recommendations found.
+                Please search for "temple" or "country".
             </p>
 
         `;
