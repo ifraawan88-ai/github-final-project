@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,15 @@
             <a href="index.html">Home</a> |
             <a href="about.html">About Us</a> |
             <a href="contact.html">Contact Us</a>
+
+            <form>
+        <input type="text" placeholder="Search">
+        <button type="submit">Search</button>
+        <button type="reset">Clear</button>
+    </form>
+
         </nav>
+
     </header>
 
     <main>
@@ -36,6 +44,217 @@
     <footer>
         <p>© 2026 My Website. All Rights Reserved.</p>
     </footer>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Travel Recommendation Website</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
+
+    header {
+        background-color: #333;
+        padding: 15px;
+        color: white;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+    #searchInput {
+        padding: 8px;
+        margin-left: auto;
+    }
+
+    button {
+        padding: 8px 15px;
+        cursor: pointer;
+    }
+
+    main {
+        padding: 30px;
+    }
+
+    #results {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    .card {
+        width: 300px;
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        margin-top: 30px;
+        background-color: #333;
+        color: white;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Enter a destination or keyword"
+        >
+
+        <button onclick="searchRecommendations()">Search</button>
+
+        <button onclick="clearResults()">Clear</button>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <h1>Travel Recommendation Website</h1>
+
+    <p>
+        Discover amazing travel destinations around the world.
+        Search for beaches and get recommendations.
+    </p>
+
+    <div id="results"></div>
+
+</main>
+
+
+<footer>
+    <p>© 2026 Travel Recommendation Website. All Rights Reserved.</p>
+</footer>
+
+
+<script>
+
+    function searchRecommendations() {
+
+        const searchInput = document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
+
+        const results = document.getElementById("results");
+
+        results.innerHTML = "";
+
+        if (
+            searchInput === "beach" ||
+            searchInput === "beaches"
+        ) {
+
+            results.innerHTML = `
+
+                <div class="card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+                        alt="Maldives Beach"
+                    >
+
+                    <h2>Maldives Beach</h2>
+
+                    <p>
+                        Enjoy beautiful white sand beaches and
+                        crystal clear blue water in the Maldives.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57"
+                        alt="Bora Bora Beach"
+                    >
+
+                    <h2>Bora Bora Beach</h2>
+
+                    <p>
+                        Bora Bora offers beautiful beaches,
+                        turquoise water and an unforgettable
+                        tropical experience.
+                    </p>
+
+                </div>
+
+            `;
+
+        } else {
+
+            results.innerHTML = `
+
+                <p>
+                    No recommendations found.
+                    Please search for "beach".
+                </p>
+
+            `;
+
+        }
+
+    }
+
+
+    function clearResults() {
+
+        document.getElementById("searchInput").value = "";
+
+        document.getElementById("results").innerHTML = "";
+
+    }
+
+</script>
+```
 
 </body>
 </html>
